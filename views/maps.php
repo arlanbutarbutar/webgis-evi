@@ -19,11 +19,11 @@
 
   <?php if (mysqli_num_rows($select_locationMaps) > 0) {
     while ($row = mysqli_fetch_assoc($select_locationMaps)) {
-      $image = $row['image'];
+      $image = $row['foto_wisata'];
       $nama = $row['nama_lokasi'];
       $deskripsi = $row['deskripsi_lokasi'];
   ?>
-      L.marker([<?= $row['latitude'] ?>, <?= $row['longitude'] ?>]).bindPopup("<div><img src='../assets/images/lokasi/<?= $image ?>' style='width: 100%;' alt=''><h4 style='margin-top: 5px;'><?= $nama ?></h4><p style='margin-top: -5px;'><?= $deskripsi ?></p></div>").addTo(map);
+      L.marker([<?= $row['latitude'] ?>, <?= $row['longitude'] ?>]).bindPopup("<div><img src='../assets/images/wisata/<?= $image ?>' style='width: 100%;' alt=''><h4 style='margin-top: 5px;'><?= $nama ?></h4><p style='margin-top: -5px;'><?= $deskripsi ?></p></div>").addTo(map);
   <?php }
   } ?>
 </script>

@@ -114,12 +114,7 @@
                         while ($row = mysqli_fetch_assoc($tbl_lokasi)) { ?>
                           <tr>
                             <td>
-                              <div class="d-flex">
-                                <img src="../assets/images/lokasi/<?= $row['image'] ?>" alt="">
-                                <div class="my-auto">
-                                  <h6><?= $row['nama_lokasi'] ?></h6>
-                                </div>
-                              </div>
+                              <h6><?= $row['nama_lokasi'] ?></h6>
                             </td>
                             <td>
                               <button type="button" class="btn btn-link border-0" data-bs-toggle="modal" data-bs-target="#deskripsi-lokasi<?= $row['id_lokasi'] ?>">
@@ -168,7 +163,7 @@
                                       <h5 class="modal-title" id="exampleModalLabel"><?= $row['nama_lokasi'] ?></h5>
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form action="" method="POST" enctype="multipart/form-data">
+                                    <form action="" method="POST">
                                       <input type="hidden" name="id-lokasi" value="<?= $row['id_lokasi'] ?>">
                                       <div class="modal-body row">
                                         <div class="col-lg-8">
@@ -184,12 +179,6 @@
                                             <label for="deskripsi" class="form-label">Deskripsi</label>
                                             <textarea name="deskripsi" class="form-control" id="deskripsi" rows="10" required><?= $row['deskripsi_lokasi'] ?></textarea>
                                           </div>
-                                          <div class="mb-3">
-                                            <label for="image" class="form-label">Photo</label>
-                                            <input type="hidden" name="imageOld" value="<?= $row['image'] ?>">
-                                            <input name="image" class="form-control" type="file" id="image">
-                                          </div>
-                                          <hr>
                                           <div class="mb-3">
                                             <label for="latitude" class="form-label">Latitude</label>
                                             <input type="text" name="latitude" class="form-control" id="latitude" placeholder="" value="<?= $row['latitude'] ?>" required>
@@ -265,7 +254,6 @@
                                       <form action="" method="POST">
                                         <input type="hidden" name="id-lokasi" value="<?= $row['id_lokasi'] ?>">
                                         <input type="hidden" name="namaOld" value="<?= $row['nama_lokasi'] ?>">
-                                        <input type="hidden" name="image" value="<?= $row['image'] ?>">
                                         <button type="submit" name="hapus-lokasi" class="btn btn-danger">Hapus</button>
                                       </form>
                                     </div>

@@ -11,76 +11,20 @@ if (!isset($_SESSION['visitor'])) {
 <!DOCTYPE html>
 <html style="scroll-behavior: smooth;">
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <title>GIS WISATA</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
-  <link href="assets/css/styles.css" rel="stylesheet" />
-  <link href="assets/css/responsive.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</head>
+<head><?php require_once("resources/header.php"); ?></head>
 
 <body>
   <div class="hero_area">
-    <header class="header_section" style="top: 0;position: fixed;width: 100%;z-index: 9999;">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="./">
-            <img src="assets/images/logo-ngada.png" alt="">
-            <span>
-              GIS WISATA <br>
-              <small>Lokasi Wisata Kab. Ngada</small>
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <ion-icon name="menu-outline" style="font-size: 40px; color: #fff;"></ion-icon>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex ml-auto flex-column flex-lg-row align-items-end">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="./">Beranda</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#tour">Wisata</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#galery">Galeri</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#maps">Peta</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#location">Lokasi</a>
-                </li>
-              </ul>
-            </div>
-            <div class="quote_btn-container  d-flex justify-content-center">
-              <a style="cursor: pointer;" onclick="window.location.href='auth/'" class="btn btn-light text-dark">Masuk</a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <?php require_once("resources/navbar.php"); ?>
     <section class=" slider_section position-relative" style="margin-top: 100px;">
       <div class="slider_bg-container"></div>
       <div class="slider-container">
         <div class="detail-box">
           <h1 style="font-size: 42px;">
-            Selamat Datang di GIS <br>
-            Wisata Kab Ngada
+            Selamat Datang di SIG <br>
+            Wisata Kab. Ngada
           </h1>
-          <p></p>
+          <p>Bajawa adalah kecamatan yang juga menjadi ibukota dari Kabupaten Ngada, provinsi Nusa Tenggara Timur, Indonesia. Kota Bajawa terletak tepat di tengah pulau Flores yang berbatasan dengan Kabupaten Nagekeo dan Kabupaten Manggarai Timur. Kabupaten Ngada memiliki beberapa objek wisata yang menjadi daya tarik bagi para wisatawan. Objek wisata di Kabupaten Ngada meliputi wisata alam, wisata budaya, wisata minat khusus dan wisata buatan.</p>
         </div>
         <div class="img-box">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -97,7 +41,7 @@ if (!isset($_SESSION['visitor'])) {
   <section class="about_section layout_padding">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4" style="z-index: 5;">
           <div class="detail-box">
             <div class="custom_heading-container">
               <h2>
@@ -105,10 +49,19 @@ if (!isset($_SESSION['visitor'])) {
               </h2>
               <hr>
             </div>
-            <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when
-              looking at its layout. The point of using Lorem
-            </p>
+            <style>
+              .img-struktur-organisasi {
+                width: 100%;
+                transform: none;
+                transition: 0.5s ease-in-out;
+              }
+
+              .img-struktur-organisasi:hover {
+                transform: scale(2);
+                margin-left: 50%;
+              }
+            </style>
+            <img src="assets/images/struktur-organisasi.png" class="img-struktur-organisasi" alt="">
           </div>
         </div>
         <div class="col-lg-4">
@@ -119,10 +72,22 @@ if (!isset($_SESSION['visitor'])) {
               </h2>
               <hr>
             </div>
-            <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when
-              looking at its layout. The point of using Lorem
-            </p>
+            <ul>
+              <li>
+                <h6 class="text-dark">Visi</h6>
+                <p>Sebagai destinasi pariwisata yang sejajar dan seimbang dengan destinasi pariwisata di kawasan NTT, yang berbasis budaya, alam dan ekosistem setempat yang berkembang secara berkesinambungan, berbasis masyarakat, dan berkemampuan mendorong pertumbuhan ekonomi kabupaten untuk membangun dan meningkatkan kesejahteraan masyarakat.</p>
+              </li>
+              <li>
+                <h6 class="text-dark">Misi</h6>
+                <ol>
+                  <li>Membangun destinasi pariwisata, terutama ODTW budaya dan alam, fasilitas dan aksesibilitas yang memenuhi standar pelayanan pariwisata</li>
+                  <li>Membangun industri pariwisata yang memenuhi standar pelayanan pariwisata, sesuai permintaan pasar wisata yang tidak mendegradasi kualitas budaya dan lingkungan setempat.</li>
+                  <li>Membangun sistem pengelolaan pariwisata yang tangguh dan akuntabel, sehingga mampu mengelola kompleksitas pariwisata Ngada secara berkesinambungan dan konsisten.</li>
+                  <li>Membangun pasar dan pemasaran pariwisata berdasar pada asas kejujuran informasi melalui promosi pariwisata yang logis dan strategis.</li>
+                  <li>Membangun sumber daya manusia industri pariwisata, masyarakat dan stakeholder Ngada yang mempunyai etos dan budaya pariwisata sehingga mampu memberi pelayanan, penjelasan, kebanggan akan pariwisata dan mempertahankan kesinambungan kehidupan pariwisata demi kehidupan mereka.</li>
+                </ol>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="col-lg-4">
@@ -133,153 +98,853 @@ if (!isset($_SESSION['visitor'])) {
               </h2>
               <hr>
             </div>
-            <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when
-              looking at its layout. The point of using Lorem
-            </p>
+            <style type="text/css">
+              table.tableizer-table {
+                font-size: 12px;
+                border: 1px solid #CCC;
+                font-family: Arial, Helvetica, sans-serif;
+              }
+
+              .tableizer-table td {
+                padding: 4px;
+                margin: 3px;
+                border: 1px solid #CCC;
+              }
+
+              .tableizer-table th {
+                background-color: #104E8B;
+                color: #FFF;
+                font-weight: bold;
+              }
+            </style>
+            <div style="overflow-x: auto;">
+              <table class="tableizer-table">
+                <thead>
+                  <tr class="tableizer-firstrow">
+                    <th>NO</th>
+                    <th>Obyek Wisata Budaya</th>
+                    <th>Jenis Wisata</th>
+                    <th>2016</th>
+                    <th>2017</th>
+                    <th>2018</th>
+                    <th>2019</th>
+                    <th>2020</th>
+                    <th>2021</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Perkampungan Tradisional Bena</td>
+                    <td>Wisman</td>
+                    <td> 7.273 </td>
+                    <td> 8.046 </td>
+                    <td> 9.700 </td>
+                    <td> 12.202 </td>
+                    <td> 3.816 </td>
+                    <td> 3 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 6.840 </td>
+                    <td> 11.659 </td>
+                    <td> 10.757 </td>
+                    <td> 13.411 </td>
+                    <td> 5.662 </td>
+                    <td> 4.181 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Anak - anak</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td> 4.184 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 14.113 </td>
+                    <td> 19.705 </td>
+                    <td> 20.457 </td>
+                    <td> 25.613 </td>
+                    <td> 9.478 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Perkampungan Tradisional Luba</td>
+                    <td>Wisman</td>
+                    <td> 1.792 </td>
+                    <td> 3.696 </td>
+                    <td> 5.116 </td>
+                    <td> 6.168 </td>
+                    <td> 1.524 </td>
+                    <td> 3 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 69 </td>
+                    <td> 765 </td>
+                    <td> 400 </td>
+                    <td> 1.879 </td>
+                    <td> 350 </td>
+                    <td> 49 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 1.861 </td>
+                    <td> 4.461 </td>
+                    <td> 5.516 </td>
+                    <td> 8.047 </td>
+                    <td> 1.874 </td>
+                    <td> 52 </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Perkampungan Tradisional Tololela</td>
+                    <td>Wisman</td>
+                    <td> 1.182 </td>
+                    <td> 1.287 </td>
+                    <td> 97 </td>
+                    <td> 1.438 </td>
+                    <td> 18 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 248 </td>
+                    <td> 287 </td>
+                    <td> 653 </td>
+                    <td> 189 </td>
+                    <td> 56 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 1.430 </td>
+                    <td> 1.574 </td>
+                    <td> 750 </td>
+                    <td> 1.627 </td>
+                    <td> 74 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Perkampungan Tradisional Gurusina</td>
+                    <td>Wisman</td>
+                    <td> 1.893 </td>
+                    <td> 2.577 </td>
+                    <td> 988 </td>
+                    <td> 207 </td>
+                    <td>&nbsp;</td>
+                    <td> 8 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 149 </td>
+                    <td> 269 </td>
+                    <td> 167 </td>
+                    <td> 10 </td>
+                    <td>&nbsp;</td>
+                    <td> 21 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 2.042 </td>
+                    <td> 2.846 </td>
+                    <td> 1.155 </td>
+                    <td> 217 </td>
+                    <td> - </td>
+                    <td> 29 </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Perkampungan Tradisional Wogo</td>
+                    <td>Wisman</td>
+                    <td> 274 </td>
+                    <td> 3 </td>
+                    <td> 153 </td>
+                    <td> 73 </td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 36 </td>
+                    <td> 73 </td>
+                    <td> 60 </td>
+                    <td> 27 </td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 310 </td>
+                    <td> 76 </td>
+                    <td> 213 </td>
+                    <td> 100 </td>
+                    <td> - </td>
+                    <td> - </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Perkampungan Tradisional Bela</td>
+                    <td>Wisman</td>
+                    <td> 175 </td>
+                    <td> 371 </td>
+                    <td> 139 </td>
+                    <td> 514 </td>
+                    <td> 102 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> 20 </td>
+                    <td>&nbsp;</td>
+                    <td> 7 </td>
+                    <td> 3 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 175 </td>
+                    <td> 391 </td>
+                    <td> 139 </td>
+                    <td> 521 </td>
+                    <td> 105 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Desa Legelapu</td>
+                    <td>Wisman</td>
+                    <td> 674 </td>
+                    <td> 89 </td>
+                    <td> 201 </td>
+                    <td> 400 </td>
+                    <td> 185 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> 74 </td>
+                    <td> 91 </td>
+                    <td> 112 </td>
+                    <td> 26 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 674 </td>
+                    <td> 163 </td>
+                    <td> 292 </td>
+                    <td> 512 </td>
+                    <td> 211 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Perkampungan Tradisional Belaraghi</td>
+                    <td>Wisman</td>
+                    <td> 622 </td>
+                    <td> 766 </td>
+                    <td> 709 </td>
+                    <td> 891 </td>
+                    <td> 324 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 40 </td>
+                    <td> 57 </td>
+                    <td> 142 </td>
+                    <td> 220 </td>
+                    <td> 34 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 662 </td>
+                    <td> 823 </td>
+                    <td> 851 </td>
+                    <td> 1.111 </td>
+                    <td> 358 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Perkampungan Tradisional Tua Be'a</td>
+                    <td>Wisman</td>
+                    <td> 44 </td>
+                    <td> 84 </td>
+                    <td> 88 </td>
+                    <td> 97 </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> 24 </td>
+                    <td> 33 </td>
+                    <td> 52 </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 44 </td>
+                    <td> 108 </td>
+                    <td> 121 </td>
+                    <td> 149 </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Sumber Air Panas Alam Mengeruda </td>
+                    <td>Wisman</td>
+                    <td> 3.498 </td>
+                    <td> 2.347 </td>
+                    <td> 7.342 </td>
+                    <td> 12.202 </td>
+                    <td> 1.128 </td>
+                    <td> 58 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 50.358 </td>
+                    <td> 51.154 </td>
+                    <td> 81.715 </td>
+                    <td> 82.670 </td>
+                    <td> 44.441 </td>
+                    <td> 50.835 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 53.856 </td>
+                    <td> 53.501 </td>
+                    <td> 89.057 </td>
+                    <td> 94.872 </td>
+                    <td> 45.569 </td>
+                    <td> 50.893 </td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>Taman Laut 17 Pulau</td>
+                    <td>Wisman</td>
+                    <td> 2.551 </td>
+                    <td> 3.060 </td>
+                    <td> 3.216 </td>
+                    <td> 5.875 </td>
+                    <td> 1.912 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 5.314 </td>
+                    <td> 5.362 </td>
+                    <td> 4.907 </td>
+                    <td> 6.795 </td>
+                    <td> 1.113 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 7.865 </td>
+                    <td> 8.422 </td>
+                    <td> 8.123 </td>
+                    <td> 12.670 </td>
+                    <td> 3.025 </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>Danau Wawomudha</td>
+                    <td>Wisman</td>
+                    <td> 236 </td>
+                    <td> 278 </td>
+                    <td> 132 </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 56 </td>
+                    <td> 82 </td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 292 </td>
+                    <td> 360 </td>
+                    <td> 132 </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisman</td>
+                    <td> 1.649 </td>
+                    <td> 3.687 </td>
+                    <td> 3.979 </td>
+                    <td> 4.169 </td>
+                    <td> 1.377 </td>
+                    <td> 6 </td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>Sumber Air Panas Alam Malanage </td>
+                    <td>Wisnus</td>
+                    <td> 249 </td>
+                    <td> 467 </td>
+                    <td> 956 </td>
+                    <td> 772 </td>
+                    <td> 302 </td>
+                    <td> 32 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 1.898 </td>
+                    <td> 4.154 </td>
+                    <td> 4.935 </td>
+                    <td> 4.941 </td>
+                    <td> 1.679 </td>
+                    <td> 38 </td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>Air Panas Boba Soka</td>
+                    <td>Wisman</td>
+                    <td> - </td>
+                    <td> 16 </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> 7.664 </td>
+                    <td> 5.553 </td>
+                    <td> 5.112 </td>
+                    <td> 7.522 </td>
+                    <td> 3.900 </td>
+                    <td> 1.455 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td> 7.664 </td>
+                    <td> 5.569 </td>
+                    <td> 5.112 </td>
+                    <td> 7.522 </td>
+                    <td> 3.900 </td>
+                    <td> 1.455 </td>
+                  </tr>
+                  <tr>
+                    <td>15</td>
+                    <td>Air Terjun Ogi - Kec. Bajawa</td>
+                    <td>Wisman</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td> 652 </td>
+                    <td> 1.030 </td>
+                    <td> 104 </td>
+                    <td> - </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> 4.858 </td>
+                    <td> 7.620 </td>
+                    <td> 3.223 </td>
+                    <td> 352 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td> 5.510 </td>
+                    <td> 8.650 </td>
+                    <td> 3.327 </td>
+                    <td> 352 </td>
+                  </tr>
+                  <tr>
+                    <td>16</td>
+                    <td>Manulalu</td>
+                    <td>Wisman</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>17</td>
+                    <td>Lekoena - Kec. Inerie</td>
+                    <td>Wisman</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td> 600 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td> 600 </td>
+                  </tr>
+                  <tr>
+                    <td>18</td>
+                    <td>Watunariwowo</td>
+                    <td>Wisman</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>19</td>
+                    <td>Maghilewa</td>
+                    <td>Wisman</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>Waebana Meze - Kec. Soa</td>
+                    <td>Wisman</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>21</td>
+                    <td>Pantai Pasir Putih - Kec. Inerie</td>
+                    <td>Wisman</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>22</td>
+                    <td>Patung Bunda Maria Ata Gae - Kec. Bajawa</td>
+                    <td>Wisman</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>23</td>
+                    <td>Pantai Jodoh Aimere</td>
+                    <td>Wisman</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Wisnus</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td> - </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>Jumlah Wisman</td>
+                    <td>&nbsp;</td>
+                    <td> 21.189 </td>
+                    <td> 26.218 </td>
+                    <td> 32.512 </td>
+                    <td> 45.266 </td>
+                    <td> 10.490 </td>
+                    <td> 78 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>Jumlah Wisnus</td>
+                    <td>&nbsp;</td>
+                    <td> 71.697 </td>
+                    <td> 75.935 </td>
+                    <td> 109.851 </td>
+                    <td> 121.286 </td>
+                    <td> 60.185 </td>
+                    <td> 57.525 </td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>Jumlah</td>
+                    <td>&nbsp;</td>
+                    <td> 92.886 </td>
+                    <td> 102.153 </td>
+                    <td> 142.363 </td>
+                    <td> 166.552 </td>
+                    <td> 70.675 </td>
+                    <td> 57.603 </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <?php if (mysqli_num_rows($tbl_wisata) > 0) { ?>
-    <section class="service_section layout_padding" id="tour">
-      <div class="container">
-        <div class="d-flex flex-column align-items-end">
-          <div class="custom_heading-container">
-            <hr>
-            <h2>
-              Wisata
-            </h2>
-          </div>
-          <p>
-            Rekomendasi Tempat Wisata di Ngada Paling Hits
-          </p>
-        </div>
-      </div>
-      <div class="container">
-        <div class="service_container layout_padding2 justify-content-center flex-wrap">
-          <?php
-          while ($row = mysqli_fetch_assoc($tbl_wisata)) { ?>
-            <a href="#" class="ml-5">
-              <div class="box">
-                <div class="img-box" style="border-radius: 20px;">
-                  <img src="assets/images/wisata/<?= $row['foto_wisata'] ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" alt="" class="img-1">
-                  <img src="assets/images/wisata/<?= $row['foto_wisata'] ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transform: scale(1.1);" alt="" class="img-2">
-                </div>
-                <div class="name">
-                  <h6>
-                    <?= $row['judul'] ?>
-                  </h6>
-                </div>
-              </div>
-            </a>
-          <?php } ?>
-        </div>
-      </div>
-    </section>
-  <?php }
-  if (mysqli_num_rows($tbl_galeri) > 0) { ?>
-    <section class="portfolio_section" id="galery">
-      <div class="container">
-        <div class="custom_heading-container">
-          <h2>
-            Galeri
-          </h2>
-          <hr>
-        </div>
-        <div class="layout_padding2-top">
-          <div class="row">
-            <?php while ($row = mysqli_fetch_assoc($tbl_galeri)) { ?>
-              <div class="col-md-4">
-                <div class="img-box" style="border-radius: 20px;">
-                  <img src="assets/images/galeri/<?= $row['foto_galeri'] ?>" style="border-radius: 20px;" alt="">
-                </div>
-              </div>
-            <?php } ?>
-          </div>
-        </div>
-      </div>
-    </section>
-  <?php } ?>
-  <section class="subscribe_section layout_padding mt-5" id="maps">
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col-md-2">
-          <h2>
-            Peta
-          </h2>
-        </div>
-        <div class="col-md-10">
-          <div id="map" style="width: 100%; height: 500px;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="client_section layout_padding" id="location">
-    <div class="container">
-      <div class="custom_heading-container">
-        <h2>
-          Lokasi
-        </h2>
-        <hr>
-      </div>
-      <div class="card border-0 shadow mt-3">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-borderless text-center">
-              <thead>
-                <tr>
-                  <th scope="col">Nama Wisata</th>
-                  <th scope="col">Lokasi</th>
-                  <th scope="col">Deskripsi</th>
-                  <th scope="col">Kategori</th>
-                  <th scope="col">Keterangan</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php if (mysqli_num_rows($tbl_wisataAll) > 0) {
-                  while ($row = mysqli_fetch_assoc($tbl_wisataAll)) { ?>
-                    <tr>
-                      <th scope="row"><?= $row['judul'] ?></th>
-                      <td><?= $row['nama_lokasi'] ?></td>
-                      <td><?= $row['deskripsi_lokasi'] ?></td>
-                      <td><?= $row['nama_kategori'] ?></td>
-                      <td><?= $row['deskripsi_kategori'] ?></td>
-                    </tr>
-                <?php }
-                } ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="container-fluid footer_section">
-    <p>
-      &copy; <?= date("Y"); ?> All Rights Reserved By
-      <a href="https://netmedia-framecode.com/">Netmedia Framecode</a>
-    </p>
-  </section>
-
-  <script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-
-  <script>
-    var map = L.map('map').setView([-8.7878764207942, 120.97297277227273], 14);
-    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
-
-    <?php if (mysqli_num_rows($tbl_lokasi) > 0) {
-      while ($row = mysqli_fetch_assoc($tbl_lokasi)) {
-        $image = $row['image'];
-        $nama = $row['nama_lokasi'];
-        $deskripsi = $row['deskripsi_lokasi'];
-    ?>
-        L.marker([<?= $row['latitude'] ?>, <?= $row['longitude'] ?>]).bindPopup("<div><img src='assets/images/lokasi/<?= $image ?>' style='width: 100%;' alt=''><h4 style='margin-top: 5px;'><?= $nama ?></h4><p style='margin-top: -5px;'><?= $deskripsi ?></p></div>").addTo(map);
-    <?php }
-    } ?>
-  </script>
+  <?php require_once("resources/footer.php"); ?>
 
 </body>
 </body>

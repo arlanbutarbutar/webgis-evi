@@ -28,35 +28,6 @@ function masuk($data)
 }
 
 if (isset($_SESSION['data-user'])) {
-  function imageLocation()
-  {
-    $namaFile = $_FILES["image"]["name"];
-    $ukuranFile = $_FILES["image"]["size"];
-    $error = $_FILES["image"]["error"];
-    $tmpName = $_FILES["image"]["tmp_name"];
-    if ($error === 4) {
-      $_SESSION['message-danger'] = "Pilih gambar terlebih dahulu!";
-      $_SESSION['time-message'] = time();
-      return false;
-    }
-    $ekstensiGambarValid = ['jpg', 'png', 'jpeg', 'heic'];
-    $ekstensiGambar = explode('.', $namaFile);
-    $ekstensiGambar = strtolower(end($ekstensiGambar));
-    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-      $_SESSION['message-danger'] = "Maaf, file kamu bukan gambar!";
-      $_SESSION['time-message'] = time();
-      return false;
-    }
-    if ($ukuranFile > 2000000) {
-      $_SESSION['message-danger'] = "Maaf, ukuran gambar terlalu besar! (2 MB)";
-      $_SESSION['time-message'] = time();
-      return false;
-    }
-    $namaFile_encrypt = crc32($namaFile);
-    $encrypt = $namaFile_encrypt . "." . $ekstensiGambar;
-    move_uploaded_file($tmpName, '../assets/images/lokasi/' . $encrypt);
-    return $encrypt;
-  }
   function imageTour()
   {
     $namaFile = $_FILES["image"]["name"];
@@ -120,13 +91,9 @@ if (isset($_SESSION['data-user'])) {
     global $conn;
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
     $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
-    $image = imageLocation();
-    if (!$image) {
-      return false;
-    }
     $latitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['latitude']))));
     $longitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['longitude']))));
-    mysqli_query($conn, "INSERT INTO tbl_lokasi(nama_lokasi,deskripsi_lokasi,image,latitude,longitude) VALUES('$nama','$deskripsi','$image','$latitude','$longitude')");
+    mysqli_query($conn, "INSERT INTO tbl_lokasi(nama_lokasi,deskripsi_lokasi,latitude,longitude) VALUES('$nama','$deskripsi','$latitude','$longitude')");
     return mysqli_affected_rows($conn);
   }
   function editLocation($data)
@@ -135,29 +102,16 @@ if (isset($_SESSION['data-user'])) {
     $id_lokasi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-lokasi']))));
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
     $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
-    $imageOld = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['imageOld']))));
-    if (!empty($_FILES['image'])) {
-      $image = imageLocation();
-      if (!$image) {
-        return false;
-      } else {
-        unlink('../assets/images/lokasi/' . $imageOld);
-      }
-    } else {
-      $image = $imageOld;
-    }
     $latitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['latitude']))));
     $longitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['longitude']))));
     $updated_at = date("Y-m-d " . $time);
-    mysqli_query($conn, "UPDATE tbl_lokasi SET nama_lokasi='$nama', deskripsi_lokasi='$deskripsi', image='$image', latitude='$latitude', longitude='$longitude', updated_at='$updated_at' WHERE id_lokasi='$id_lokasi'");
+    mysqli_query($conn, "UPDATE tbl_lokasi SET nama_lokasi='$nama', deskripsi_lokasi='$deskripsi', latitude='$latitude', longitude='$longitude', updated_at='$updated_at' WHERE id_lokasi='$id_lokasi'");
     return mysqli_affected_rows($conn);
   }
   function deleteLocation($data)
   {
     global $conn;
     $id_lokasi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-lokasi']))));
-    $image = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['image']))));
-    unlink('../assets/images/lokasi/' . $image);
     mysqli_query($conn, "DELETE FROM tbl_lokasi WHERE id_lokasi='$id_lokasi'");
     return mysqli_affected_rows($conn);
   }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Sep 2022 pada 21.43
+-- Waktu pembuatan: 17 Sep 2022 pada 17.06
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -81,7 +81,6 @@ CREATE TABLE `tbl_lokasi` (
   `id_lokasi` int(11) NOT NULL,
   `nama_lokasi` varchar(225) NOT NULL,
   `deskripsi_lokasi` text NOT NULL,
-  `image` varchar(100) NOT NULL,
   `latitude` varchar(50) NOT NULL,
   `longitude` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
@@ -105,7 +104,7 @@ CREATE TABLE `tbl_pengunjung` (
 --
 
 INSERT INTO `tbl_pengunjung` (`id_pengunjung`, `pengunjung`, `updated_at`) VALUES
-(1, 11, '2022-09-12 03:33:53');
+(1, 0, '2022-09-17 23:03:33');
 
 -- --------------------------------------------------------
 
@@ -181,19 +180,19 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT untuk tabel `tbl_galeri`
 --
 ALTER TABLE `tbl_galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_lokasi`
 --
 ALTER TABLE `tbl_lokasi`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pengunjung`
@@ -205,7 +204,7 @@ ALTER TABLE `tbl_pengunjung`
 -- AUTO_INCREMENT untuk tabel `tbl_wisata`
 --
 ALTER TABLE `tbl_wisata`
-  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
