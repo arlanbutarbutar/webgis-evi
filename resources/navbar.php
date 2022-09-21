@@ -18,6 +18,9 @@
               <a class="nav-link" href="./">Beranda</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="./#about">Tentang</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="tour">Wisata</a>
             </li>
             <li class="nav-item">

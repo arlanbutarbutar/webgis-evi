@@ -944,6 +944,33 @@ if (!isset($_SESSION['visitor'])) {
       </div>
     </div>
   </section>
+  <section class="about_section layout_padding" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="detail-box">
+            <h6>
+              Tentang
+            </h6>
+            <div class="custom_heading-container">
+              <h2>
+                Wisata Ngada
+              </h2>
+              <hr>
+            </div>
+            <p>
+              <strong>Nama :Kristina Eufrasia Moi</strong><br>
+              <strong>Nim :23118010</strong><br>
+              <strong>Prodi :Ilmu Komputer</strong><br>
+              <strong>Fakultas:Teknik</strong><br>
+              <strong>Judul :Sistem Informasi Geografis Lokasi Pariwisata di Kabupaten Ngada Berbasis Mobil</strong><br><br>
+              Tujuan dibuatkan website ini adalah untuk membantu dinas pariwisata dalam menyampaikan informasi tentang objek wisata yang ada diKabupaten Ngada kepada wisatawan lokal maupun wisatawan asing. Dan teknologi yang berkembang pesat saat ini adalah smartphone, sehingga pengguna lebih sering menggunakan smartphone untuk mencari informasi yang diperlukan karena di dasari oleh rasa nyaman dan sangat efisien dibandingkan dengan perangkat lain seperti laptop atau notebook.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <?php require_once("resources/footer.php"); ?>
 
 </body>
