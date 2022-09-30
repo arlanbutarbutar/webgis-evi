@@ -90,7 +90,7 @@ if (isset($_SESSION['data-user'])) {
   {
     global $conn;
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     $latitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['latitude']))));
     $longitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['longitude']))));
     mysqli_query($conn, "INSERT INTO tbl_lokasi(nama_lokasi,deskripsi_lokasi,latitude,longitude) VALUES('$nama','$deskripsi','$latitude','$longitude')");
@@ -101,7 +101,7 @@ if (isset($_SESSION['data-user'])) {
     global $conn, $time;
     $id_lokasi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-lokasi']))));
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     $latitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['latitude']))));
     $longitude = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['longitude']))));
     $updated_at = date("Y-m-d " . $time);
@@ -119,7 +119,7 @@ if (isset($_SESSION['data-user'])) {
   {
     global $conn;
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     mysqli_query($conn, "INSERT INTO tbl_kategori(nama_kategori,deskripsi_kategori) VALUES('$nama','$deskripsi')");
     return mysqli_affected_rows($conn);
   }
@@ -128,7 +128,7 @@ if (isset($_SESSION['data-user'])) {
     global $conn, $time;
     $id_kategori = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-kategori']))));
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     $updated_at = date("Y-m-d " . $time);
     mysqli_query($conn, "UPDATE tbl_kategori SET nama_kategori='$nama', deskripsi_kategori='$deskripsi', updated_at='$updated_at' WHERE id_kategori='$id_kategori'");
     return mysqli_affected_rows($conn);
@@ -144,7 +144,7 @@ if (isset($_SESSION['data-user'])) {
   {
     global $conn;
     $judul = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['judul']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     $kategori = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['kategori']))));
     $lokasi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['lokasi']))));
     $image = imageTour();
@@ -159,7 +159,7 @@ if (isset($_SESSION['data-user'])) {
     global $conn, $time;
     $id_wisata = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-wisata']))));
     $judul = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['judul']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     $kategori = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['kategori']))));
     $lokasi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['lokasi']))));
     $imageOld = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['imageOld']))));
@@ -190,7 +190,7 @@ if (isset($_SESSION['data-user'])) {
   {
     global $conn;
     $wisata = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['wisata']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     $image = imageGalery();
     if (!$image) {
       return false;
@@ -203,7 +203,7 @@ if (isset($_SESSION['data-user'])) {
     global $conn, $time;
     $id_galeri = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-galeri']))));
     $wisata = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['wisata']))));
-    $deskripsi = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['deskripsi']))));
+    $deskripsi = $data['deskripsi'];
     $imageOld = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['imageOld']))));
     if (!empty($_FILES['image-galeri'])) {
       $image = imageGalery();

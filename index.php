@@ -41,7 +41,7 @@ if (!isset($_SESSION['visitor'])) {
   <section class="about_section layout_padding">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4" style="z-index: 5;">
+        <div class="col-md-12" style="z-index: 5;">
           <div class="detail-box">
             <div class="custom_heading-container">
               <h2>
@@ -55,7 +55,7 @@ if (!isset($_SESSION['visitor'])) {
                 transform: none;
                 transition: 0.5s ease-in-out;
               }
-
+    
               .img-struktur-organisasi:hover {
                 transform: scale(2);
                 margin-left: 50%;
@@ -64,7 +64,7 @@ if (!isset($_SESSION['visitor'])) {
             <img src="assets/images/struktur-organisasi.png" class="img-struktur-organisasi" alt="">
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-md-12">
           <div class="detail-box">
             <div class="custom_heading-container">
               <h2>
@@ -90,7 +90,7 @@ if (!isset($_SESSION['visitor'])) {
             </ul>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-md-12">
           <div class="detail-box">
             <div class="custom_heading-container">
               <h2>
@@ -100,21 +100,23 @@ if (!isset($_SESSION['visitor'])) {
             </div>
             <style type="text/css">
               table.tableizer-table {
-                font-size: 12px;
+                width: 100%;
+                font-size: 14px;
                 border: 1px solid #CCC;
                 font-family: Arial, Helvetica, sans-serif;
               }
-
+    
               .tableizer-table td {
                 padding: 4px;
                 margin: 3px;
                 border: 1px solid #CCC;
               }
-
+    
               .tableizer-table th {
                 background-color: #104E8B;
                 color: #FFF;
                 font-weight: bold;
+                text-align: center;
               }
             </style>
             <div style="overflow-x: auto;">

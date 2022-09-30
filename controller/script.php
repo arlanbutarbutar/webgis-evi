@@ -25,6 +25,7 @@ if (isset($_SESSION['time-message'])) {
   }
 }
 
+// $baseURL = "http://127.0.0.1:1010/apps/webgis-evi/";
 $baseURL = "http://localhost/webgis-evi/";
 
 if (isset($_POST['masuk'])) {

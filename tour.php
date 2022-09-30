@@ -26,7 +26,7 @@
       <div class="service_container layout_padding2 justify-content-center flex-wrap">
         <?php if (mysqli_num_rows($tbl_wisata) > 0) {
           while ($row = mysqli_fetch_assoc($tbl_wisata)) { ?>
-            <a href="#" class="ml-5">
+            <a href="#" class="ml-5" data-toggle="modal" data-target="#exampleModal">
               <div class="box">
                 <div class="img-box" style="border-radius: 20px;">
                   <img src="assets/images/wisata/<?= $row['foto_wisata'] ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" alt="" class="img-1">
@@ -39,6 +39,23 @@
                 </div>
               </div>
             </a>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body p-3 pt-5 pb-5">
+                    <h1><?= $row['judul'] ?></h1>
+                    <img src="assets/images/wisata/<?= $row['foto_wisata'] ?>" style="width: 100%;" alt="">
+                    <p class="text-dark pl-3 pr-3 pt-3 text-justify"><?= $row['deskripsi']?></p>
+                  </div>
+                </div>
+              </div>
+            </div>
         <?php }
         } ?>
       </div>
