@@ -26,7 +26,7 @@
       <div class="service_container layout_padding2 justify-content-center flex-wrap">
         <?php if (mysqli_num_rows($tbl_wisata) > 0) {
           while ($row = mysqli_fetch_assoc($tbl_wisata)) { ?>
-            <a href="#" class="ml-5" data-toggle="modal" data-target="#exampleModal">
+            <a href="#" class="ml-5" data-toggle="modal" data-target="#tour<?= $row['id_wisata']?>">
               <div class="box">
                 <div class="img-box" style="border-radius: 20px;">
                   <img src="assets/images/wisata/<?= $row['foto_wisata'] ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;" alt="" class="img-1">
@@ -39,7 +39,7 @@
                 </div>
               </div>
             </a>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="tour<?= $row['id_wisata']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header border-bottom-0">
