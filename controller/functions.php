@@ -119,8 +119,7 @@ if (isset($_SESSION['data-user'])) {
   {
     global $conn;
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
-    $deskripsi = $data['deskripsi'];
-    mysqli_query($conn, "INSERT INTO tbl_kategori(nama_kategori,deskripsi_kategori) VALUES('$nama','$deskripsi')");
+    mysqli_query($conn, "INSERT INTO tbl_kategori(nama_kategori) VALUES('$nama')");
     return mysqli_affected_rows($conn);
   }
   function editCategory($data)
@@ -128,9 +127,8 @@ if (isset($_SESSION['data-user'])) {
     global $conn, $time;
     $id_kategori = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-kategori']))));
     $nama = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['nama']))));
-    $deskripsi = $data['deskripsi'];
     $updated_at = date("Y-m-d " . $time);
-    mysqli_query($conn, "UPDATE tbl_kategori SET nama_kategori='$nama', deskripsi_kategori='$deskripsi', updated_at='$updated_at' WHERE id_kategori='$id_kategori'");
+    mysqli_query($conn, "UPDATE tbl_kategori SET nama_kategori='$nama', updated_at='$updated_at' WHERE id_kategori='$id_kategori'");
     return mysqli_affected_rows($conn);
   }
   function deleteCategory($data)

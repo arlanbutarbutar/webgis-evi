@@ -25,8 +25,8 @@ if (isset($_SESSION['time-message'])) {
   }
 }
 
-// $baseURL = "http://127.0.0.1:1010/apps/webgis-evi/";
-$baseURL = "http://localhost/webgis-evi/";
+$baseURL = "http://127.0.0.1:1010/apps/webgis-evi/";
+// $baseURL = "http://localhost/webgis-evi/";
 
 if (isset($_POST['masuk'])) {
   if (masuk($_POST) > 0) {
@@ -37,9 +37,9 @@ if (isset($_POST['masuk'])) {
 
 if (!isset($_SESSION['data-user'])) {
   $tbl_wisata = mysqli_query($conn, "SELECT * FROM tbl_wisata");
-  $tbl_galeri=mysqli_query($conn, "SELECT * FROM tbl_galeri");
+  $tbl_galeri = mysqli_query($conn, "SELECT * FROM tbl_galeri");
   $tbl_lokasi = mysqli_query($conn, "SELECT * FROM tbl_lokasi JOIN tbl_wisata ON tbl_lokasi.id_lokasi=tbl_wisata.id_lokasi");
-  $tbl_wisataAll=mysqli_query($conn, "SELECT * FROM tbl_wisata JOIN tbl_kategori ON tbl_wisata.id_kategori=tbl_kategori.id_kategori JOIN tbl_lokasi ON tbl_wisata.id_lokasi=tbl_lokasi.id_lokasi ORDER BY tbl_wisata.id_wisata DESC");
+  $tbl_wisataAll = mysqli_query($conn, "SELECT * FROM tbl_wisata JOIN tbl_kategori ON tbl_wisata.id_kategori=tbl_kategori.id_kategori JOIN tbl_lokasi ON tbl_wisata.id_lokasi=tbl_lokasi.id_lokasi ORDER BY tbl_wisata.id_wisata DESC");
 }
 
 if (isset($_SESSION['data-user'])) {
@@ -223,4 +223,8 @@ if (isset($_SESSION['data-user'])) {
       exit();
     }
   }
+
+  // cetak laproan per kategori
+  $cetak_kategori = mysqli_query($conn, "SELECT * FROM tbl_kategori ORDER BY tbl_kategori.id_kategori DESC
+  ");
 }

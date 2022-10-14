@@ -40,7 +40,6 @@
                   <th scope="col">Lokasi</th>
                   <th scope="col">Deskripsi</th>
                   <th scope="col">Kategori</th>
-                  <th scope="col">Keterangan</th>
                 </tr>
               </thead>
               <tbody>
@@ -51,7 +50,6 @@
                       <td><?= $row['nama_lokasi'] ?></td>
                       <td><?= $row['deskripsi_lokasi'] ?></td>
                       <td><?= $row['nama_kategori'] ?></td>
-                      <td><?= $row['deskripsi_kategori'] ?></td>
                     </tr>
                 <?php }
                 } ?>

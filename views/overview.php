@@ -49,7 +49,6 @@
                           </p>
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="align-items-start">
-                              <p class="mb-0 text-small text-muted"><?= $row['deskripsi_kategori'] ?></p>
                               <small class="mb-0 text-small text-muted">
                                 <?php $date_kategori = date_create($row['updated_at']);
                                 echo date_format($date_kategori, "l, d M Y h:i a"); ?>

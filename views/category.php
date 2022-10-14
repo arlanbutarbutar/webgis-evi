@@ -30,17 +30,13 @@ $_SESSION['page-url'] = "category";
         <div class="content-wrapper">
           <div class="row flex-row-reverse">
             <div class="col-lg-4">
-              <div class="card mt-3">
+              <div class="card mt-3 card-rounded">
                 <div class="card-body text-center">
                   <h4>Tambah Kategori</h4>
                   <form class="mt-3" action="" method="POST">
                     <div class="mb-3">
                       <label for="nama" class="form-label">Nama</label>
                       <input type="text" name="nama" class="form-control" id="nama" placeholder="" required>
-                    </div>
-                    <div class="mb-3">
-                      <label for="deskripsi" class="form-label">Deskripsi</label>
-                      <textarea name="deskripsi" class="form-control" id="deskripsi" cols="30" rows="10" required></textarea>
                     </div>
                     <div class="mb-3">
                       <button type="submit" name="tambah-kategori" class="btn btn-primary">Tambah</button>
@@ -50,42 +46,40 @@ $_SESSION['page-url'] = "category";
               </div>
             </div>
             <div class="col-lg-8">
-              <div class="card mt-3">
+              <div class="card mt-3 card-rounded">
                 <div class="card-body">
                   <div class="table-responsive  mt-1">
                     <table class="table select-table text-center">
                       <thead>
                         <tr>
-                          <th>Nama</th>
-                          <th>Deskripsi</th>
-                          <th>Tgl Dibuat</th>
-                          <th>Tgl Diubah</th>
-                          <th colspan="2">Aksi</th>
+                          <th class="text-dark">Nama</th>
+                          <th class="text-dark">Tgl Dibuat</th>
+                          <th class="text-dark">Tgl Diubah</th>
+                          <th class="text-dark" colspan="2">Aksi</th>
                         </tr>
                       </thead>
                       <tbody id="search-page">
                         <?php if (mysqli_num_rows($tbl_kategoriAll) == 0) { ?>
                           <tr>
-                            <td colspan="6">Belum ada data kategori</td>
+                            <td class="text-dark" colspan="6">Belum ada data kategori</td>
                           </tr>
                           <?php } else if (mysqli_num_rows($tbl_kategoriAll) > 0) {
                           while ($row = mysqli_fetch_assoc($tbl_kategoriAll)) { ?>
                             <tr>
-                              <td><?= $row['nama_kategori'] ?></td>
-                              <td><?= $row['deskripsi_kategori'] ?></td>
-                              <td>
+                              <td class="text-dark"><?= $row['nama_kategori'] ?></td>
+                              <td class="text-dark">
                                 <div class="badge badge-opacity-success">
                                   <?php $dateCreate = date_create($row['created_at']);
                                   echo date_format($dateCreate, "l, d M Y h:i a"); ?>
                                 </div>
                               </td>
-                              <td>
+                              <td class="text-dark">
                                 <div class="badge badge-opacity-warning">
                                   <?php $dateUpdate = date_create($row['updated_at']);
                                   echo date_format($dateUpdate, "l, d M Y h:i a"); ?>
                                 </div>
                               </td>
-                              <td>
+                              <td class="text-dark">
                                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#ubah<?= $row['id_kategori'] ?>">
                                   <i class="mdi mdi-table-edit"></i>
                                 </button>
@@ -104,10 +98,6 @@ $_SESSION['page-url'] = "category";
                                             <input type="hidden" name="namaOld" value="<?= $row['nama_kategori'] ?>">
                                             <input type="text" name="nama" value="<?= $row['nama_kategori'] ?>" class="form-control" id="nama" placeholder="" required>
                                           </div>
-                                          <div class="mb-3">
-                                            <label for="deskripsi" class="form-label">Deskripsi</label>
-                                            <textarea name="deskripsi" class="form-control" id="deskripsi" cols="30" rows="10" required><?= $row['deskripsi_kategori'] ?></textarea>
-                                          </div>
                                         </div>
                                         <div class="modal-footer justify-content-center border-top-0">
                                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -118,7 +108,7 @@ $_SESSION['page-url'] = "category";
                                   </div>
                                 </div>
                               </td>
-                              <td>
+                              <td class="text-dark">
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?= $row['id_kategori'] ?>">
                                   <i class="mdi mdi-delete"></i>
                                 </button>
