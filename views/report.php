@@ -126,7 +126,6 @@ $_SESSION['page-url'] = "report";
                           <tr>
                             <th scope="col">No</th>
                             <th>Judul</th>
-                            <th>Lokasi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -141,7 +140,6 @@ $_SESSION['page-url'] = "report";
                               <tr>
                                 <th scope="row"><?= $no; ?></th>
                                 <td><?= $row['judul'] ?></td>
-                                <td><?= $row['nama_lokasi'] ?></td>
                             <?php $no++;
                             }
                           } ?>

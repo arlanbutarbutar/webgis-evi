@@ -24,8 +24,6 @@ header("Content-Disposition: attachment; filename=" . $row['nama_kategori'] . ".
     <tr>
       <th scope="col">No</th>
       <th>Judul</th>
-      <th>Deskripsi</th>
-      <th>Lokasi</th>
     </tr>
   </thead>
   <tbody>
@@ -40,8 +38,6 @@ header("Content-Disposition: attachment; filename=" . $row['nama_kategori'] . ".
         <tr>
           <th scope="row"><?= $no; ?></th>
           <td><?= $row['judul'] ?></td>
-          <td><?= $row['deskripsi'] ?></td>
-          <td><?= $row['nama_lokasi'] ?></td>
       <?php $no++;
       }
     } ?>
