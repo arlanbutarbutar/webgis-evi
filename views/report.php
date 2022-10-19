@@ -7,7 +7,10 @@ $_SESSION['page-url'] = "report";
 <!DOCTYPE html>
 <html lang="en">
 
-<head><?php require_once("../resources/dash-header.php") ?></head>
+<head>
+  <?php require_once("../resources/dash-header.php") ?>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
 
 <body>
   <?php if (isset($_SESSION['message-success'])) { ?>
@@ -31,6 +34,47 @@ $_SESSION['page-url'] = "report";
           <div class="row">
             <div class="col-md-12">
               <h2>Cetak Laporan Wisata</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <canvas id="myChart" style="width:100%;"></canvas>
+              <?php
+              if (mysqli_num_rows($grafik_kategori) > 0) {
+                while ($row_gr = mysqli_fetch_assoc($grafik_kategori)) {
+                  $nama_kategori[] = $row_gr['nama_kategori'];
+
+                  $id_kategori = $row_gr['id_kategori'];
+                  $check_wisata = mysqli_query($conn, "SELECT * FROM tbl_wisata WHERE id_kategori='$id_kategori'");
+                  $count[] = mysqli_num_rows($check_wisata);
+                }
+              }
+              ?>
+              <script type="text/javascript">
+                var ctx = document.getElementById("myChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: <?= json_encode($nama_kategori); ?>,
+                    datasets: [{
+                      label: 'Tempat Wisata Kabupaten Ngada',
+                      data: <?= json_encode($count); ?>,
+                      backgroundColor: 'rgba(2, 92, 225)',
+                      borderColor: 'rgba(2, 92, 225)',
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          beginAtZero: true
+                        }
+                      }]
+                    }
+                  }
+                });
+              </script>
             </div>
           </div>
           <div class="row flex-grow mt-3">
@@ -57,6 +101,12 @@ $_SESSION['page-url'] = "report";
                               <i class="mdi mdi-file-excel" style="font-size: 20px;"></i>
                             </button>
                           </form>
+                          <form action="" method="post" class="mt-2">
+                            <input type="hidden" name="id-kategori" value="<?= $row['id_kategori']; ?>">
+                            <button type="submit" name="views-kategori" class="btn btn-success btn-sm">
+                              <i class="mdi mdi-table" style="font-size: 20px;"></i>
+                            </button>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -65,6 +115,44 @@ $_SESSION['page-url'] = "report";
             <?php }
             } ?>
           </div>
+          <?php if (isset($_POST['views-kategori'])) { ?>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-rounded">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table select-table text-center">
+                        <thead>
+                          <tr>
+                            <th scope="col">No</th>
+                            <th>Judul</th>
+                            <th>Lokasi</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php if (mysqli_num_rows($views_kategori) == 0) { ?>
+                            <tr>
+                              <th colspan="4">Belum ada data.</th>
+                            </tr>
+                            <?php }
+                          $no = 1;
+                          if (mysqli_num_rows($views_kategori) > 0) {
+                            while ($row = mysqli_fetch_assoc($views_kategori)) { ?>
+                              <tr>
+                                <th scope="row"><?= $no; ?></th>
+                                <td><?= $row['judul'] ?></td>
+                                <td><?= $row['nama_lokasi'] ?></td>
+                            <?php $no++;
+                            }
+                          } ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
         </div>
         <?php require_once("../resources/dash-footer.php") ?>
 </body>

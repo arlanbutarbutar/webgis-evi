@@ -36,5 +36,11 @@
         <span class="menu-title">Wisata</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" style="cursor: pointer;" onclick="window.location.href='report'">
+        <i class="mdi mdi-library-books menu-icon"></i>
+        <span class="menu-title">Laporan</span>
+      </a>
+    </li>
   </ul>
 </nav>
