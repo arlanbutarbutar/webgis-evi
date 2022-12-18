@@ -25,7 +25,7 @@ if (isset($_SESSION['time-message'])) {
   }
 }
 
-$baseURL = "http://127.0.0.1:1010/apps/webgis-evi/";
+$baseURL = "http://$_SERVER[HTTP_HOST]/webgis-evi/";
 // $baseURL = "http://localhost/webgis-evi/";
 
 if (isset($_POST['masuk'])) {
@@ -35,12 +35,13 @@ if (isset($_POST['masuk'])) {
   }
 }
 
-if (!isset($_SESSION['data-user'])) {
-  $tbl_wisata = mysqli_query($conn, "SELECT * FROM tbl_wisata");
+// if (!isset($_SESSION['data-user'])) {
+  $tbl_kategori = mysqli_query($conn, "SELECT * FROM tbl_kategori ORDER BY id_kategori DESC");
   $tbl_galeri = mysqli_query($conn, "SELECT * FROM tbl_galeri");
   $tbl_lokasi = mysqli_query($conn, "SELECT * FROM tbl_lokasi JOIN tbl_wisata ON tbl_lokasi.id_lokasi=tbl_wisata.id_lokasi");
   $tbl_wisataAll = mysqli_query($conn, "SELECT * FROM tbl_wisata JOIN tbl_kategori ON tbl_wisata.id_kategori=tbl_kategori.id_kategori JOIN tbl_lokasi ON tbl_wisata.id_lokasi=tbl_lokasi.id_lokasi ORDER BY tbl_wisata.id_wisata DESC");
-}
+  $dataKunjungan = mysqli_query($conn, "SELECT * FROM data_kunjungan JOIN tbl_wisata ON data_kunjungan.id_wisata=tbl_wisata.id_wisata ORDER BY data_kunjungan.id_kunjungan DESC");
+// }
 
 if (isset($_SESSION['data-user'])) {
   $idUser = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $_SESSION['data-user']['id']))));
@@ -241,4 +242,57 @@ if (isset($_SESSION['data-user'])) {
       ORDER BY tbl_wisata.id_wisata DESC
     ");
   }
+
+  // // data kunjungan
+  // $data_kunjungan = mysqli_query($conn, "SELECT * FROM data_kunjungan JOIN tbl_wisata ON data_kunjungan.id_wisata=tbl_wisata.id_wisata ORDER BY data_kunjungan.id_kunjungan DESC");
+
+  // // add Visit
+  // if (isset($_POST['tambah-kunjungan'])) {
+  //   if (addVisit($_POST) > 0) {
+  //     $_SESSION['message-success'] = "Data kunjungan baru telah ditambahkan.";
+  //     $_SESSION['time-message'] = time();
+  //     header("Location: " . $_SESSION['page-url']);
+  //     exit();
+  //   }
+  // }
+
+  // // edit Visit
+  // if (isset($_POST['ubah-kunjungan'])) {
+  //   if (editVisit($_POST) > 0) {
+  //     $_SESSION['message-success'] = "Data kunjungan " . $_POST['namaOld'] . " telah diubah.";
+  //     $_SESSION['time-message'] = time();
+  //     header("Location: " . $_SESSION['page-url']);
+  //     exit();
+  //   }
+  // }
+
+  // // delete Visit
+  // if (isset($_POST['hapus-kunjungan'])) {
+  //   if (deleteVisit($_POST) > 0) {
+  //     $_SESSION['message-success'] = "Data kunjungan " . $_POST['namaOld'] . " telah dihapus.";
+  //     $_SESSION['time-message'] = time();
+  //     header("Location: " . $_SESSION['page-url']);
+  //     exit();
+  //   }
+  // }
+
+  // // add jenis wisata
+  // if (isset($_POST['tambah-kategori-visit'])) {
+  //   if (addKategoriVisit($_POST) > 0) {
+  //     $_SESSION['message-success'] = "Jenis wisata baru telah ditambahkan.";
+  //     $_SESSION['time-message'] = time();
+  //     header("Location: " . $_SESSION['page-url']);
+  //     exit();
+  //   }
+  // }
+
+  // // delete jenis wisata
+  // if (isset($_POST['hapus-kategori-visit'])) {
+  //   if (deleteKategoriVisit($_POST) > 0) {
+  //     $_SESSION['message-success'] = "Jenis wisata " . $_POST['namaOld'] . " telah dihapus.";
+  //     $_SESSION['time-message'] = time();
+  //     header("Location: " . $_SESSION['page-url']);
+  //     exit();
+  //   }
+  // }
 }

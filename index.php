@@ -21,7 +21,7 @@ if (!isset($_SESSION['visitor'])) {
       <div class="slider-container">
         <div class="detail-box">
           <h1 style="font-size: 42px;">
-            Selamat Datang di SIG <br>
+            Selamat Datang di Sistem Informasi Geografis <br>
             Wisata Kab. Ngada
           </h1>
           <p>Bajawa adalah kecamatan yang juga menjadi ibukota dari Kabupaten Ngada, provinsi Nusa Tenggara Timur, Indonesia. Kota Bajawa terletak tepat di tengah pulau Flores yang berbatasan dengan Kabupaten Nagekeo dan Kabupaten Manggarai Timur. Kabupaten Ngada memiliki beberapa objek wisata yang menjadi daya tarik bagi para wisatawan. Objek wisata di Kabupaten Ngada meliputi wisata alam, wisata budaya, wisata minat khusus dan wisata buatan.</p>

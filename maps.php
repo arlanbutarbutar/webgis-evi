@@ -37,8 +37,7 @@
               <thead>
                 <tr>
                   <th scope="col">Nama Wisata</th>
-                  <th scope="col">Lokasi</th>
-                  <th scope="col">Deskripsi</th>
+                  <th scope="col">Alamat</th>
                   <th scope="col">Kategori</th>
                 </tr>
               </thead>
@@ -48,7 +47,6 @@
                     <tr>
                       <th scope="row"><?= $row['judul'] ?></th>
                       <td><?= $row['nama_lokasi'] ?></td>
-                      <td><?= $row['deskripsi_lokasi'] ?></td>
                       <td><?= $row['nama_kategori'] ?></td>
                     </tr>
                 <?php }

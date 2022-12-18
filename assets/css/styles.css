@@ -308,17 +308,36 @@ a:focus {
   position: relative;
   font-family: "Poppins", sans-serif;
 }
+.service_details_section {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
 
 .service_section h2,
 .service_section p {
+  color: white;
+}
+.service_details_section h2,
+.service_details_section p {
   color: white;
 }
 
 .service_section hr {
   background-color: #ffffff;
 }
+.service_details_section hr {
+  background-color: #ffffff;
+}
 
 .service_section .service_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.service_details_section .service_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -333,8 +352,17 @@ a:focus {
   margin: 30px 0;
   font-family: "Roboto", sans-serif;
 }
+.service_details_section .box {
+  width: 175px;
+  text-align: center;
+  margin: 30px 0;
+  font-family: "Roboto", sans-serif;
+}
 
 .service_section .box .img-2 {
+  display: none;
+}
+.service_details_section .box .img-2 {
   display: none;
 }
 
@@ -352,8 +380,25 @@ a:focus {
           align-items: center;
   background-color: #ffffff;
 }
+.service_details_section .box .img-box {
+  width: 175px;
+  height: 175px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffffff;
+}
 
 .service_section .box .name {
+  margin-top: 15px;
+}
+.service_details_section .box .name {
   margin-top: 15px;
 }
 
@@ -362,12 +407,23 @@ a:focus {
   color: #000000;
   font-weight: bold;
 }
+.service_details_section .box .name h6 {
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: bold;
+}
 
 .service_section .box:hover .img-1 {
   display: none;
 }
+.service_details_section .box:hover .img-1 {
+  display: none;
+}
 
 .service_section .box:hover .img-2 {
+  display: inline-block;
+}
+.service_details_section .box:hover .img-2 {
   display: inline-block;
 }
 
@@ -381,8 +437,25 @@ a:focus {
   background-image: url(../images/service-bg.jpg);
   z-index: -1;
 }
+.service_details_section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 55%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
 .service_section .read-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.service_details_section .read-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -399,8 +472,20 @@ a:focus {
   color: #ffffff;
   border-radius: 25px;
 }
+.service_details_section .read-btn a {
+  display: inline-block;
+  padding: 8px 25px;
+  background-color: #000000;
+  border: 1px solid #000000;
+  color: #ffffff;
+  border-radius: 25px;
+}
 
 .service_section .read-btn a:hover {
+  background-color: transparent;
+  color: #000000;
+}
+.service_details_section .read-btn a:hover {
   background-color: transparent;
   color: #000000;
 }

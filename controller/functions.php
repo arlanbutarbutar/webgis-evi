@@ -268,4 +268,62 @@ if (isset($_SESSION['data-user'])) {
     mysqli_query($conn, "DELETE FROM tbl_admin WHERE id_admin='$id_admin'");
     return mysqli_affected_rows($conn);
   }
+  // function addVisit($data)
+  // {
+  //   global $conn;
+  //   $id_wisata = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-wisata']))));
+  //   $checkID = mysqli_query($conn, "SELECT * FROM data_kunjungan WHERE id_wisata='$id_wisata'");
+  //   if (mysqli_num_rows($checkID) > 0) {
+  //     $_SESSION['message-danger'] = "Maaf, obyek wisata sudah ditambahkan!";
+  //     $_SESSION['time-message'] = time();
+  //     return false;
+  //   }
+  //   mysqli_query($conn, "INSERT INTO data_kunjungan(id_wisata) VALUES('$id_wisata')");
+  //   return mysqli_affected_rows($conn);
+  // }
+  // function editVisit($data)
+  // {
+  //   global $conn;
+  //   $id_kunjungan = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-kunjungan']))));
+  //   $id_wisata = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-wisata']))));
+  //   $id_wisataOld = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-wisataOld']))));
+  //   if ($id_wisata != $id_wisataOld) {
+  //     $checkID = mysqli_query($conn, "SELECT * FROM data_kunjungan WHERE id_wisata='$id_wisata'");
+  //     if (mysqli_num_rows($checkID) > 0) {
+  //       $_SESSION['message-danger'] = "Maaf, obyek wisata sudah ditambahkan!";
+  //       $_SESSION['time-message'] = time();
+  //       return false;
+  //     }
+  //   }
+  //   mysqli_query($conn, "UPDATE data_kunjungan SET id_wisata='$id_wisata' WHERE id_kunjungan='$id_kunjungan'");
+  //   return mysqli_affected_rows($conn);
+  // }
+  // function deleteVisit($data)
+  // {
+  //   global $conn;
+  //   $id_kunjungan = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-kunjungan']))));
+  //   mysqli_query($conn, "DELETE FROM data_kunjungan WHERE id_kunjungan='$id_kunjungan'");
+  //   return mysqli_affected_rows($conn);
+  // }
+  // function addKategoriVisit($data)
+  // {
+  //   global $conn;
+  //   $id_kategori = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-kategori']))));
+  //   $id_kunjungan = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-kunjungan']))));
+  //   $checkID = mysqli_query($conn, "SELECT * FROM kategori_kunjungan WHERE id_kategori='$id_kategori' AND id_kunjungan='$id_kunjungan'");
+  //   if (mysqli_num_rows($checkID) > 0) {
+  //     $_SESSION['message-danger'] = "Maaf, jenis wisata yang anda tambahkan sudah ada!";
+  //     $_SESSION['time-message'] = time();
+  //     return false;
+  //   }
+  //   mysqli_query($conn, "INSERT INTO kategori_kunjungan(id_kategori,id_kunjungan) VALUES('$id_kategori','$id_kunjungan')");
+  //   return mysqli_affected_rows($conn);
+  // }
+  // function deleteKategoriVisit($data)
+  // {
+  //   global $conn;
+  //   $id = htmlspecialchars(addslashes(trim(mysqli_real_escape_string($conn, $data['id-kk']))));
+  //   mysqli_query($conn, "DELETE FROM kategori_kunjungan WHERE id_kategori_kunjungan='$id'");
+  //   return mysqli_affected_rows($conn);
+  // }
 }
