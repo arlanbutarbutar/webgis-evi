@@ -46,7 +46,7 @@
                   while ($row = mysqli_fetch_assoc($tbl_wisataAll)) { ?>
                     <tr>
                       <th scope="row"><?= $row['judul'] ?></th>
-                      <td><?= $row['nama_lokasi'] ?></td>
+                      <td><?= $row['deskripsi_lokasi'] ?></td>
                       <td><?= $row['nama_kategori'] ?></td>
                     </tr>
                 <?php }
